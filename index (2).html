@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitalis Pharmacy | Your Trusted Healthcare Partner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Color Palette */
+            --primary: #0F766E;
+            --primary-hover: #115E59;
+            --secondary: #14B8A6;
+            --accent: #2563EB;
+            --bg-color: #FFFFFF;
+            --surface-color: #F8FAFC;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            
+            /* Design Tokens */
+            --radius: 16px;
+            --radius-sm: 8px;
+            --shadow-sm: 0 2px 4px rgba(15, 118, 110, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(15, 118, 110, 0.1), 0 4px 6px -4px rgba(15, 118, 110, 0.05);
+            --shadow-hover: 0 20px 25px -5px rgba(15, 118, 110, 0.15), 0 8px 10px -6px rgba(15, 118, 110, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-bg {
+            background-color: var(--surface-color);
+        }
+
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .text-accent { color: var(--accent); }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        h1 { font-size: 3.5rem; letter-spacing: -0.02em; }
+        h2 { font-size: 2.5rem; margin-bottom: 24px; }
+        h3 { font-size: 1.5rem; }
+        p { color: var(--text-muted); font-size: 1.125rem; margin-bottom: 24px; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-dark);
+        }
+
+        .hero {
+            padding: 160px 0 80px;
+            display: flex;
+            align-items: center;
+            min-height: 90vh;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            color: var(--primary);
+        }
+
+        .hero-content span {
+            color: var(--secondary);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+        
+        .hero-image img {
+            box-shadow: var(--shadow-md);
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-hover);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hero-badge-icon {
+            background: var(--surface-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--secondary);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--surface-color);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+
+        .card-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 1.125rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .feature-list svg {
+            color: var(--secondary);
+            width: 24px;
+            height: 24px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            background: var(--primary);
+            border-radius: var(--radius);
+            padding: 48px;
+            color: white;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .stat-item p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            color: var(--surface-color);
+            width: 60px;
+            height: 60px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .user-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .team-card img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .team-info {
+            padding: 24px;
+        }
+
+        .team-info p {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+        }
+
+        .contact-info-card {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .contact-info-card .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--surface-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--surface-color);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+            background-color: white;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 400px;
+            box-shadow: var(--shadow-md);
+        }
+
+        footer {
+            background-color: #042F2E;
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #99F6E4;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #99F6E4;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* View routing styles */
+        .page-view {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page-view.active-view {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3rem; }
+            .hero-grid, .split-section { gap: 40px; }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .hero { padding: 120px 0 60px; min-height: auto; }
+            .hero-grid, .split-section { grid-template-columns: 1fr; }
+            .hero-grid > div:first-child, .split-section > div:first-child { order: 2; }
+            .hero-grid > div:last-child, .split-section > div:last-child { order: 1; }
+            
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                gap: 0;
+                box-shadow: var(--shadow-md);
+                display: none;
+            }
+
+            .nav-links.show { display: flex; }
+            .nav-link { padding: 20px 24px; border-bottom: 1px solid var(--border-color); display: block; }
+            .mobile-toggle { display: block; }
+            
+            .team-grid { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; }
+        }
+
+        @media (max-width: 480px) {
+            .grid-4 { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+        }
+        
+        /* Modal for forms */
+        .msg-box {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 16px 24px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo nav-trigger" data-target="home">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" fill="currentColor" fill-opacity="0.2"/>
+                    <path d="M11 7H13V11H17V13H13V17H11V13H7V11H11V7Z" fill="currentColor"/>
+                </svg>
+                Vitalis
+            </a>
+            
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <svg viewBox="0 0 24 24"><path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" class="nav-link active nav-trigger" data-target="home">Home</a></li>
+                <li><a href="#" class="nav-link nav-trigger" data-target="about">About</a></li>
+                <li><a href="#" class="nav-link nav-trigger" data-target="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="home" class="page-view active-view">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content animate-on-scroll">
+                    <h1>Modern Care for a <span>Healthier</span> You</h1>
+                    <p>Your trusted local pharmacy providing expert consultation, quality medicines, and personalized healthcare solutions for your family.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary nav-trigger" data-target="contact">
+                            Contact Us
+                        </button>
+                        <button class="btn btn-outline nav-trigger" data-target="contact">
+                            Get Directions
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1586015555751-63bb77f4322a?auto=format&fit=crop&w=800&q=80" alt="Pharmacy Interior">
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0;">24/7 Support</h4>
+                            <p style="margin: 0; font-size: 0.9rem;">Always here for you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-bg">
+            <div class="container">
+                <div class="text-center animate-on-scroll" style="max-width: 600px; margin: 0 auto 48px;">
+                    <h4 class="text-secondary" style="color: var(--secondary)">Our Services</h4>
+                    <h2>Featured Pharmacy Services</h2>
+                    <p>We offer a comprehensive range of healthcare services to keep you and your family healthy and happy.</p>
+                </div>
+
+                <div class="grid-4">
+                    <div class="card animate-on-scroll">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20.56a8.94 8.94 0 0 1-8-8.56c0-4.97 4.03-9 9-9h9a2 2 0 0 1 2 2v9c0 4.97-4.03 9-9 9z"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+                        </div>
+                        <h3>Prescription Medicines</h3>
+                        <p style="font-size: 1rem; margin-bottom: 0;">Fast, accurate prescription fulfillment with expert advice on proper usage.</p>
+                    </div>
+                    <div class="card animate-on-scroll" style="transition-delay: 0.1s">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="17" r="4"/><circle cx="17" cy="7" r="4"/><path d="M10 14L14 10"/></svg>
+                        </div>
+                        <h3>OTC Medicines</h3>
+                        <p style="font-size: 1rem; margin-bottom: 0;">A wide selection of over-the-counter medications for common ailments.</p>
+                    </div>
+                    <div class="card animate-on-scroll" style="transition-delay: 0.2s">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3>Health Consultation</h3>
+                        <p style="font-size: 1rem; margin-bottom: 0;">Professional guidance from our certified pharmacists for your health concerns.</p>
+                    </div>
+                    <div class="card animate-on-scroll" style="transition-delay: 0.3s">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+                        </div>
+                        <h3>Vaccination</h3>
+                        <p style="font-size: 1rem; margin-bottom: 0;">Convenient and safe immunization services to protect your well-being.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container split-section">
+                <div class="animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5eb3?auto=format&fit=crop&w=800&q=80" alt="Pharmacist consulting patient">
+                </div>
+                <div class="animate-on-scroll">
+                    <h4 class="text-secondary" style="color: var(--secondary)">Why Choose Us</h4>
+                    <h2>Committed to Your Health and Safety</h2>
+                    <p>At Vitalis Pharmacy, we prioritize your health by offering top-tier services, authentic products, and a friendly environment.</p>
+                    
+                    <ul class="feature-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Expert & Certified Pharmacists
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            100% Genuine Medications
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Fast & Friendly Service
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Affordable Pricing
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section pt-0">
+            <div class="container animate-on-scroll">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10k+</h3>
+                        <p>Happy Patients</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5k+</h3>
+                        <p>Medical Products</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4.9</h3>
+                        <p>Average Rating</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-bg">
+            <div class="container">
+                <div class="text-center animate-on-scroll" style="max-width: 600px; margin: 0 auto 48px;">
+                    <h2>What Our Clients Say</h2>
+                    <p>Read about the experiences of our satisfied community members.</p>
+                </div>
+                
+                <div class="grid-4" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <div class="testimonial-card animate-on-scroll">
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p style="color: var(--text-dark); font-style: italic;">"Vitalis Pharmacy has been a lifesaver. The staff is incredibly knowledgeable and always takes the time to explain my medications. Highly recommended!"</p>
+                        <div class="user-info">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80" alt="Sarah J.">
+                            <div>
+                                <h4 style="margin: 0; font-size: 1.1rem;">Sarah Jenkins</h4>
+                                <p style="margin: 0; font-size: 0.9rem;">Local Resident</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll" style="transition-delay: 0.2s">
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p style="color: var(--text-dark); font-style: italic;">"Fast service and they always have what I need in stock. The new online consultation feature is fantastic for quick questions."</p>
+                        <div class="user-info">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Michael T.">
+                            <div>
+                                <h4 style="margin: 0; font-size: 1.1rem;">Michael Torres</h4>
+                                <p style="margin: 0; font-size: 0.9rem;">Regular Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="about" class="page-view">
+        <section class="hero" style="min-height: 40vh; padding-top: 120px; background-color: var(--surface-color);">
+            <div class="container text-center animate-on-scroll">
+                <h1>About <span style="color: var(--primary);">Vitalis</span></h1>
+                <p style="max-width: 600px; margin: 0 auto;">Dedicated to providing exceptional healthcare services and products to our community.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container split-section">
+                <div class="animate-on-scroll">
+                    <h2>Our Story</h2>
+                    <p>Founded with a passion for community health, Vitalis Pharmacy has grown from a small neighborhood store into a comprehensive healthcare hub. For over 15 years, we have stood by our commitment to prioritize patient well-being above all else.</p>
+                    <p>We believe that a pharmacy is more than just a place to pick up prescriptions; it is a vital pillar of the community's health infrastructure. That's why we continuously invest in training our staff and expanding our range of services.</p>
+                </div>
+                <div class="animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=800&q=80" alt="Pharmacy Building">
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-bg">
+            <div class="container">
+                <div class="grid-4" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <div class="card animate-on-scroll">
+                        <h3 class="text-primary">Our Mission</h3>
+                        <p>To enhance the quality of life in our community by delivering expert pharmaceutical care, comprehensive health consultations, and reliable medical products with unparalleled customer service.</p>
+                    </div>
+                    <div class="card animate-on-scroll" style="transition-delay: 0.1s">
+                        <h3 class="text-primary">Our Vision</h3>
+                        <p>To be the leading, most trusted healthcare destination in the region, recognized for our innovative services, compassionate care, and unwavering dedication to patient health.</p>
+                    </div>
+                    <div class="card animate-on-scroll" style="transition-delay: 0.2s">
+                        <h3 class="text-primary">Our Values</h3>
+                        <p>Integrity, Empathy, Excellence, and Community. We treat every patient like family, ensuring confidentiality, respect, and the highest standard of professional care in every interaction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="text-center animate-on-scroll" style="max-width: 600px; margin: 0 auto 48px;">
+                    <h2>Meet Our Experts</h2>
+                    <p>Our team of certified pharmacists is here to support your health journey.</p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Dr. Robert Chen">
+                        <div class="team-info">
+                            <h3>Dr. Robert Chen</h3>
+                            <p>Lead Pharmacist</p>
+                        </div>
+                    </div>
+                    <div class="team-card animate-on-scroll" style="transition-delay: 0.1s">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" alt="Dr. Emily Davis">
+                        <div class="team-info">
+                            <h3>Dr. Emily Davis</h3>
+                            <p>Clinical Pharmacist</p>
+                        </div>
+                    </div>
+                    <div class="team-card animate-on-scroll" style="transition-delay: 0.2s">
+                        <img src="https://images.unsplash.com/photo-1594824432258-0027788fc1f5?auto=format&fit=crop&w=400&q=80" alt="James Wilson">
+                        <div class="team-info">
+                            <h3>James Wilson</h3>
+                            <p>Pharmacy Technician</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" style="padding-top: 0;">
+            <div class="container text-center animate-on-scroll">
+                <div style="background: var(--surface-color); padding: 60px; border-radius: var(--radius);">
+                    <h2>Ready to prioritize your health?</h2>
+                    <p style="margin-bottom: 32px;">Visit us today or get in touch for a personal consultation.</p>
+                    <button class="btn btn-primary nav-trigger" data-target="contact">Contact Us Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="contact" class="page-view">
+        <section class="hero" style="min-height: 30vh; padding-top: 120px; background-color: var(--surface-color);">
+            <div class="container text-center animate-on-scroll">
+                <h1>Contact <span style="color: var(--primary);">Us</span></h1>
+                <p>We are here to answer your questions and assist with your healthcare needs.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container contact-grid">
+                <div class="animate-on-scroll">
+                    <h2>Get in Touch</h2>
+                    <p>Reach out to us through any of the channels below or fill out the form.</p>
+                    
+                    <div class="contact-info-card mt-4">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 4px;">Address</h4>
+                            <p style="margin: 0; font-size: 1rem;">123 Healthcare Ave, Wellness City, ST 12345</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 4px;">Phone</h4>
+                            <p style="margin: 0; font-size: 1rem;">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 4px;">Email</h4>
+                            <p style="margin: 0; font-size: 1rem;">care@vitalispharmacy.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 4px;">Opening Hours</h4>
+                            <p style="margin: 0; font-size: 1rem;">Mon-Sat: 8:00 AM - 10:00 PM<br>Sun: 9:00 AM - 8:00 PM</p>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn btn-primary" style="background-color: #0088cc; width: 100%; margin-top: 16px;">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
+                        Chat on Telegram
+                    </a>
+                </div>
+
+                <div class="animate-on-scroll">
+                    <form id="contactForm" style="background: white; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);">
+                        <h3 style="margin-bottom: 24px;">Send a Message</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section pt-0">
+            <div class="container animate-on-scroll">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.1583091352!2d-74.11976373946229!3d40.69766374859258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1689626359871!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="logo nav-trigger" data-target="home" style="color: white; margin-bottom: 24px;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" fill="currentColor" fill-opacity="0.2"/>
+                            <path d="M11 7H13V11H17V13H13V17H11V13H7V11H11V7Z" fill="currentColor"/>
+                        </svg>
+                        Vitalis
+                    </a>
+                    <p style="color: #99F6E4; margin-top: 16px;">Your trusted neighborhood pharmacy committed to providing the highest quality healthcare services and products for you and your family.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="nav-trigger" data-target="home">Home</a></li>
+                        <li><a href="#" class="nav-trigger" data-target="about">About Us</a></li>
+                        <li><a href="#" class="nav-trigger" data-target="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Prescriptions</a></li>
+                        <li><a href="#">OTC Medicines</a></li>
+                        <li><a href="#">Consultation</a></li>
+                        <li><a href="#">Vaccination</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="color: #99F6E4;">Subscribe for health tips and updates.</p>
+                    <div style="display: flex; gap: 8px; margin-top: 16px;">
+                        <input type="email" placeholder="Email address" style="padding: 12px; border-radius: var(--radius-sm); border: none; width: 100%; outline: none;">
+                        <button class="btn btn-primary" style="padding: 12px 16px;">Go</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="margin: 0; font-size: 0.9rem;">&copy; 2024 Vitalis Pharmacy. All rights reserved. Designed for Health.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom message box for alerts -->
+    <div id="msgBox" class="msg-box">Message sent successfully!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Client-Side Routing (Single Page Application Logic)
+            const triggers = document.querySelectorAll('.nav-trigger');
+            const views = document.querySelectorAll('.page-view');
+            const navLinks = document.querySelectorAll('.nav-links .nav-link');
+
+            function switchView(targetId) {
+                // Hide all views
+                views.forEach(view => {
+                    view.classList.remove('active-view');
+                });
+
+                // Show target view
+                const targetView = document.getElementById(targetId);
+                if (targetView) {
+                    targetView.classList.add('active-view');
+                }
+
+                // Update active link state
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-target') === targetId) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Close mobile menu if open
+                const navLinksContainer = document.getElementById('nav-links');
+                if (navLinksContainer.classList.contains('show')) {
+                    navLinksContainer.classList.remove('show');
+                }
+
+                // Re-trigger animations for the new view
+                triggerScrollAnimations();
+            }
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = trigger.getAttribute('data-target');
+                    switchView(targetId);
+                });
+            });
+
+            // 2. Mobile Menu Toggle
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const navLinksContainer = document.getElementById('nav-links');
+
+            mobileToggle.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('show');
+            });
+
+            // 3. Scroll Animations (Intersection Observer)
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            function triggerScrollAnimations() {
+                const animatedElements = document.querySelectorAll('.animate-on-scroll');
+                animatedElements.forEach(el => {
+                    // Reset animation state if needed or just observe
+                    animationObserver.observe(el);
+                });
+            }
+
+            // Initial trigger
+            triggerScrollAnimations();
+
+            // 4. Form Submission handling
+            const contactForm = document.getElementById('contactForm');
+            const msgBox = document.getElementById('msgBox');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Show message box
+                    msgBox.style.display = 'block';
+                    
+                    // Hide after 3 seconds
+                    setTimeout(() => {
+                        msgBox.style.display = 'none';
+                        contactForm.reset();
+                    }, 3000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
